@@ -356,6 +356,7 @@ h3,
     letter-spacing: -1px;
     background: linear-gradient(to right, #fff, var(--text-muted));
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     display: flex;
     align-items: center;
@@ -627,6 +628,12 @@ h3,
     .main-content {
         overflow-y: visible;
         padding: 1.5rem;
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
     }
 
     .main-header h2 {
