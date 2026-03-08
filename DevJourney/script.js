@@ -213,6 +213,65 @@ function updateSectionProgress(categoryKey) {
     return { completed: completedCount, total: totalCount, percentage };
 }
 
+// Generate intelligent recommendations based on progress
+function generateRecommendations() {
+    const listElement = document.getElementById('recommendations-list');
+    if (!listElement) return;
+
+    let recommendations = [];
+    const fe = updateSectionProgress('frontend');
+    const pr = updateSectionProgress('projects');
+    const fr = updateSectionProgress('freelancing');
+    const it = updateSectionProgress('itsupport');
+
+    // Logic for recommendations
+    if (fe.percentage < 50) {
+        recommendations.push({
+            icon: "fa-brands fa-html5",
+            text: "Focus on your Frontend fundamentals. Try to complete the basic HTML/CSS tasks before jumping into heavy JavaScript."
+        });
+    } else if (fe.percentage >= 80 && pr.completed < 2) {
+        recommendations.push({
+            icon: "fa-solid fa-laptop-code",
+            text: "Your Frontend skills are looking solid! Now is the perfect time to start building your first Portfolio Project to apply what you've learned."
+        });
+    }
+
+    if (pr.completed >= 2 && fr.percentage === 0) {
+        recommendations.push({
+            icon: "fa-solid fa-briefcase",
+            text: "You have a couple of projects finished. Look into the Freelancing Prep tasks to start getting your name out there!"
+        });
+    }
+
+    if (it.percentage < 20) {
+        recommendations.push({
+            icon: "fa-solid fa-server",
+            text: "Don't forget your IT Support Backup skills! Taking 20 minutes a day to study network basics makes you a well-rounded tech professional."
+        });
+    }
+
+    // Default encouragement if doing well everywhere
+    if (recommendations.length === 0) {
+        recommendations.push({
+            icon: "fa-solid fa-fire",
+            text: "You are crushing your goals! Keep up the momentum, maintain your daily coding streak, and don't forget to take breaks."
+        });
+    }
+
+    // Render 
+    listElement.innerHTML = '';
+    recommendations.forEach(rec => {
+        const li = document.createElement('li');
+        li.className = 'recommendation-item';
+        li.innerHTML = `
+            <div class="recommendation-icon"><i class="${rec.icon}"></i></div>
+            <div class="recommendation-text">${rec.text}</div>
+        `;
+        listElement.appendChild(li);
+    });
+}
+
 // Update dashboard statistics
 function updateDashboard() {
     const statsContainer = document.getElementById('dashboard-stats');
@@ -249,6 +308,7 @@ function updateDashboard() {
     });
 
     statsContainer.innerHTML = statCardsHtml;
+    generateRecommendations(); // refresh tips whenever dashboard updates
 }
 
 // Event Listeners Setup
@@ -325,6 +385,30 @@ function setupEventListeners() {
 
     // Setup drag and drop for study links
     setupDragAndDrop();
+
+    // Modal Logic
+    const overviewBtn = document.getElementById('overview-btn');
+    const closeModalBtn = document.getElementById('close-modal-btn');
+    const modalOverlay = document.getElementById('overview-modal');
+
+    if (overviewBtn && closeModalBtn && modalOverlay) {
+        overviewBtn.addEventListener('click', () => {
+            modalOverlay.classList.add('active');
+            // small delay to let translation happen smoothly
+            setTimeout(updateDashboard, 50);
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modalOverlay.classList.remove('active');
+        });
+
+        // Close on outside click
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                modalOverlay.classList.remove('active');
+            }
+        });
+    }
 }
 
 // Function for Drag and Drop in study links

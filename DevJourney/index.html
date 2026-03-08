@@ -47,20 +47,11 @@
                         <button id="add-link-btn" title="Add Link"><i class="fa-solid fa-plus"></i> Add</button>
                     </div>
                 </div>
-
-                <!-- Dashboard Section -->
-                <div class="sidebar-section">
-                    <h3 class="sidebar-title">
-                        <i class="fa-solid fa-chart-pie"></i> Activity Overview
-                    </h3>
-                    <div class="stats-container" id="dashboard-stats">
-                        <!-- Stats dynamically injected here -->
-                    </div>
-                </div>
+                <!-- Dashboard Section (Removed to modal) -->
             </div>
 
             <div class="sidebar-footer">
-                <p>Built by Crisneil</p>
+                <p>Built by Chris</p>
             </div>
         </aside>
 
@@ -71,7 +62,11 @@
                     <h2><i class="fa-solid fa-route"></i> My Journey Path</h2>
                     <p class="header-desc">Track your roadmap and milestones</p>
                 </div>
-                <!-- Dynamic Date could be placed here if needed -->
+                <div class="header-right">
+                    <button id="overview-btn" class="overview-btn">
+                        <i class="fa-solid fa-chart-pie"></i> Activity Overview
+                    </button>
+                </div>
             </header>
 
             <div class="content-grid">
@@ -144,6 +139,28 @@
                 </section>
             </div>
         </main>
+    </div>
+
+    <!-- Activity Overview Modal -->
+    <div class="modal-overlay" id="overview-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fa-solid fa-chart-pie"></i> Your Activity Overview</h2>
+                <button class="close-modal-btn" id="close-modal-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="stats-container" id="dashboard-stats">
+                    <!-- Stats dynamically injected here -->
+                </div>
+
+                <div class="recommendations-box" id="recommendations-box">
+                    <h3><i class="fa-solid fa-lightbulb"></i> Journey Recommendations</h3>
+                    <ul id="recommendations-list">
+                        <!-- AI tips injected here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
