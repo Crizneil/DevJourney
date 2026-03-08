@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+  <!-- Rounded background matching the gradient in CSS -->
+  <rect width="512" height="512" rx="120" ry="120" fill="url(#logo-grad)" />
+  <!-- Code Icon </ > -->
+  <text x="50%" y="45%" font-family="system-ui, -apple-system, sans-serif" font-size="220" font-weight="900" fill="white" text-anchor="middle" dominant-baseline="middle">&lt;/&gt;</text>
+  <!-- DevJourney Text -->
+  <text x="50%" y="78%" font-family="system-ui, -apple-system, sans-serif" font-size="65" font-weight="bold" fill="white" text-anchor="middle" dominant-baseline="middle">DevJourney</text>
+</svg>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Personal Developer Tracker to track progress in web development, projects, freelancing, and IT support">
+    <title>DevJourney - Personal Developer Tracker</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Google Fonts: Inter & Outfit for modern look -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700;800&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation & Dashboard -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo-icon"><i class="fa-solid fa-code"></i></div>
+                <div>
+                    <h1>DevJourney</h1>
+                    <p class="subtitle">Personal Tracker</p>
+                </div>
+            </div>
+
+            <div class="sidebar-scrollable">
+                <!-- Study Links Section (New feature) -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">
+                        <i class="fa-solid fa-bookmark"></i> Study Links
+                    </h3>
+
+                    <ul class="study-links-list" id="study-links-list">
+                        <!-- Links injected here -->
+                    </ul>
+
+                    <div class="link-input-group">
+                        <input type="text" id="new-link-title" placeholder="Title (e.g. JS Info)" required>
+                        <input type="url" id="new-link-url" placeholder="https://..." required>
+                        <button id="add-link-btn" title="Add Link"><i class="fa-solid fa-plus"></i> Add</button>
+                    </div>
+                </div>
+
+                <!-- Dashboard Section -->
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">
+                        <i class="fa-solid fa-chart-pie"></i> Activity Overview
+                    </h3>
+                    <div class="stats-container" id="dashboard-stats">
+                        <!-- Stats dynamically injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <p>Built by Crisneil</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="main-header">
+                <div class="header-left">
+                    <h2><i class="fa-solid fa-route"></i> My Journey Path</h2>
+                    <p class="header-desc">Track your roadmap and milestones</p>
+                </div>
+                <!-- Dynamic Date could be placed here if needed -->
+            </header>
+
+            <div class="content-grid">
+                <!-- Frontend Learning Path -->
+                <section class="card logic-section" id="frontend-section">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h2><i class="fa-brands fa-html5"></i> Frontend Development</h2>
+                            <span class="progress-text" id="frontend-progress-text">0%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="frontend-progress-bar"></div>
+                        </div>
+                        <ul class="task-list" id="frontend-tasks">
+                            <!-- Tasks injected here -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Projects Tracker -->
+                <section class="card logic-section" id="projects-section">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h2><i class="fa-solid fa-laptop-code"></i> Portfolio Projects</h2>
+                            <span class="progress-text" id="projects-progress-text">0%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="projects-progress-bar"></div>
+                        </div>
+                        <ul class="task-list" id="projects-list">
+                            <!-- Projects injected here -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Freelancing Preparation -->
+                <section class="card logic-section" id="freelancing-section">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h2><i class="fa-solid fa-briefcase"></i> Freelancing Prep</h2>
+                            <span class="progress-text" id="freelancing-progress-text">0%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="freelancing-progress-bar"></div>
+                        </div>
+                        <ul class="task-list" id="freelancing-tasks">
+                            <!-- Tasks injected here -->
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- IT Support Backup Path -->
+                <section class="card logic-section" id="itsupport-section">
+                    <div class="card-glow"></div>
+                    <div class="card-content">
+                        <div class="card-header">
+                            <h2><i class="fa-solid fa-server"></i> IT Support Backup</h2>
+                            <span class="progress-text" id="itsupport-progress-text">0%</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="itsupport-progress-bar"></div>
+                        </div>
+                        <ul class="task-list" id="itsupport-tasks">
+                            <!-- Tasks injected here -->
+                        </ul>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
